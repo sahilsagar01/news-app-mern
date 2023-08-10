@@ -16,7 +16,7 @@ function Login() {
 const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:5002/login";
+      const url = "http://13.239.136.155:5002/login";
         await axios.post(url, existingUser).then(async (res)=>{
           localStorage.setItem("user", JSON.stringify(res.data));
           window.location = '/'
