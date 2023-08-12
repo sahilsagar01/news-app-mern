@@ -22,6 +22,7 @@ const connectToMogodb = async (param) => {
 connectToMogodb();
 
 app.use("/", require("./router/userRouter"));
+app.use("/article", require("./router/articleRouter"));
 
 app.listen(PORT, function () {
   console.log(`server is running on port ${PORT}`);

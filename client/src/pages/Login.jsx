@@ -4,6 +4,7 @@ import { useState , useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const [errMsg , setErrMsg] = useState()
     useEffect(() => {
       let user = localStorage.removeItem("user");
     }, []);
@@ -16,14 +17,20 @@ function Login() {
 const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://13.239.136.155:5002/login";
+      const url = "http://localhost:5002/login";
         await axios.post(url, existingUser).then(async (res)=>{
+          setErrMsg(res.data.message)
+          setisFailedLogin(true)
+          console.log(res.data.message)
           localStorage.setItem("user", JSON.stringify(res.data));
-          window.location = '/'
+          const foundUSer = res.data.user;
+          // foundUSer && navigate("/")
+          if(foundUSer) window.location = "/"
+
         })
     } catch (err) {
       console.log(err);
-      setisFailedLogin(true)
+      
     }
   };
   return (
@@ -52,11 +59,7 @@ const handleClick = async (e) => {
                 </div>
                 {isFailedLogin && (
                   <div className="errorMsg">
-                    User not found, Please{" "}
-                    <a href="/signup" className=" font-medium text-primary-600 hover:underline dark:text-primary-500">
-                      Sign up
-                    </a>
-                    .
+                    {errMsg}
                   </div>
                 )}
                 <div className="flex items-center justify-between">

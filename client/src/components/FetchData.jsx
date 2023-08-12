@@ -14,11 +14,11 @@ function FetchData(props) {
             try{
                 
                 const generalData = await axios.get(
-                    Categories? `https://newsapi.org/v2/top-headlines?country=in&category=${Categories}&apiKey=e6966d1077544e83a0bc3da29955edc9`
-                : "https://newsapi.org/v2/top-headlines?country=in&apiKey=e6966d1077544e83a0bc3da29955edc9"
+                    Categories? `http://localhost:5002/article/${Categories}`
+                : "http://localhost:5002/article/home"
                 );
-                console.log(generalData.data.articles)
                 const genrals = generalData.data.articles;
+                console.log({genrals})
                 setCard(genrals);
 
             }
@@ -30,11 +30,12 @@ function FetchData(props) {
     },[Categories])
   return (
     <>
+    {console.log("card",card)}
     <Container className='categoriesCont'>
         <h1>Top {Categories?Categories:"Generals"}</h1>
         <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
         {
-            card.map((items, index) =>{
+          card && card.map((items, index) =>{
                 return <Cards
                 key={index}
                 title={items.title}

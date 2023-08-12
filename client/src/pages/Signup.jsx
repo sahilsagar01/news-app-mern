@@ -14,7 +14,8 @@ const navigate = useNavigate();
 const handleClick = async(e) => {
   e.preventDefault();
   try{
-    const url = "http://13.239.136.155:5002/register"
+    // localhost
+    const url = "http://localhost:5002/register"
     const savedUser = await axios.post(url, newUser);
     console.log(savedUser)
     savedUser.data = "success" && navigate("/login")

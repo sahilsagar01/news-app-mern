@@ -29,11 +29,23 @@ const getAllUsers = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
+  console.log(req.body);
   try {
     const { email, password } = req.body;
-    if (!email || !password) return res.json("email and password required.");
-    const doc = await User.findOne({ email, password });
-    return res.json(doc);
+    User.findOne({ email: email }).then((user) => {
+      if (user) {
+        if (user.password === password) {
+          res.json({
+            user: user,
+            message: ""
+          });
+        } else {
+          res.json({message:"The password is incorrect"});
+        }
+      } else {
+        res.json({message:"No record found"});
+      }
+    });
   } catch (err) {
     res.send(err);
   }
