@@ -14,8 +14,8 @@ function FetchData(props) {
             try{
                 
                 const generalData = await axios.get(
-                    Categories? `http://localhost:5002/article/${Categories}`
-                : "http://localhost:5002/article/home"
+                    Categories? `http://13.232.32.146:5002/article/${Categories}`
+                : "http://13.232.32.146:5002/article/home"
                 );
                 const genrals = generalData.data.articles;
                 console.log({genrals})

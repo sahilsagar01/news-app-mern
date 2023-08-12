@@ -17,7 +17,7 @@ function Login() {
 const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:5002/login";
+      const url = "http://13.232.32.146:5002/login";
         await axios.post(url, existingUser).then(async (res)=>{
           setErrMsg(res.data.message)
           setisFailedLogin(true)
