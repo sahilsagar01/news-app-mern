@@ -17,7 +17,7 @@ function Login() {
 const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://13.232.32.146:5002/login";
+      const url = "https://news-app-server-lb75.onrender.com/login";
         await axios.post(url, existingUser).then(async (res)=>{
           setErrMsg(res.data.message)
           setisFailedLogin(true)

@@ -15,7 +15,7 @@ const handleClick = async(e) => {
   e.preventDefault();
   try{
     // 13.232.32.146
-    const url = "http://13.232.32.146:5002/register"
+    const url = "https://news-app-server-lb75.onrender.com/register"
     const savedUser = await axios.post(url, newUser);
     console.log(savedUser)
     savedUser.data = "success" && navigate("/login")
