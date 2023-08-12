@@ -13,7 +13,7 @@ const PORT = 5002;
 const connectToMogodb = async (param) => {
   try {
     await mongoose.connect(
-      "mongodb+srv://java:gogomaster@database.qrvyh.mongodb.net/NewsApp?retryWrites=true&w=majority"
+      process.env.DB
     );
   } catch (err) {
     console.log(err);
