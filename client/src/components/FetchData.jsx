@@ -35,7 +35,7 @@ function FetchData(props) {
     <>
     {console.log("card",card)}
     <Container className='categoriesCont'>
-        <h1>Top {Categories?Categories:"Generals"}</h1>
+        <h1 className='news_heading'>Top {Categories?Categories:"Generals"}</h1>
         <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
         {
           skeleton ? card.map((items, index) =>{

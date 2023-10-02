@@ -1,7 +1,6 @@
 import React from "react";
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
-import Card from 'react-bootstrap/Card';
 
 
 function Cards(props) {
@@ -15,7 +14,7 @@ function Cards(props) {
         </div>
         <div className="px-6 pt-4 pb-2">
           <a href={props.link}>
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <span className="inline-block bg-gray-200 hover:bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
               Learn More
             </span>
           </a>
