@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+body{
+  background-color: #ccc;
+}
 .headerCont{
   padding: 0;
   margin: 0;
@@ -12,6 +15,30 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+.news_heading{
+  animation: bounce 300ms;
+  color: #fff;
+  padding: 10px;
+  text-shadow: 2px 2px 10px #2b3035;
+  border-bottom: 1px solid #fff;
+
+
+}
+.news_heading span{
+  color: orange;
+}
+@keyframes bounce{
+  0%,100%{
+    transform: rotateY(0);
+    opacity: 10%;
+    border-bottom: #ccc;
+  }
+  50%{
+    transform: rotateY(180deg);
+    opacity: 100%;
+    border-bottom: #fff;
+  }
 }
 .headerCont h1{
   margin: 0;
@@ -57,7 +84,15 @@
 
 .card{
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-  transition: all ease 500ms;
+  transition: all ease 300ms;
+  animation: rotate 100ms;
+}
+
+@keyframes rotate{
+ 
+  50%{
+    rotate: 180deg;
+    }
 }
 .card:hover{
   scale: 1.1;

@@ -21,7 +21,7 @@ function Cards(props) {
         </div>
       </div>
       :
-      <div className="card rounded overflow-hidden">
+      <div className=" rounded overflow-hidden">
       
      
         <div className="px-6 py-4">
