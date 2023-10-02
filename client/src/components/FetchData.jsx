@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/esm/Container'
 import axios from "axios";
 import Cards from './Cards';
+import { Card } from 'react-bootstrap';
 
 
 function FetchData(props) {
     const [card, setCard] = useState([])
+    const [skeleton, setSkeleton] = useState(false)
 
     const Categories = props.cat;
 
@@ -20,6 +22,7 @@ function FetchData(props) {
                 const genrals = generalData.data.articles;
                 console.log({genrals})
                 setCard(genrals);
+                setSkeleton(true)
 
             }
             catch(err){
@@ -35,14 +38,19 @@ function FetchData(props) {
         <h1>Top {Categories?Categories:"Generals"}</h1>
         <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
         {
-          card && card.map((items, index) =>{
+          skeleton ? card.map((items, index) =>{
                 return <Cards
                 key={index}
                 title={items.title}
                 content={items.content}
                 image={items.urlToImage}
                 learnMore={items.url}
-                link={items.url} />
+                link={items.url}
+                card={card} />
+            })
+            :
+            [1,2,3,4,5,6].map(item =>{
+                return <Cards />
             })
         }
         </div>
